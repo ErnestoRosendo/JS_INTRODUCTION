@@ -19,6 +19,7 @@ function result (user, cpu) {
 
 }
 
+
 function validarSuscripcion (tipoDeSuscripcion){
     if (tipoDeSuscripcion === "Free"){
         console.log("Solo puedes tomar los cursos gratis");
@@ -32,4 +33,22 @@ function validarSuscripcion (tipoDeSuscripcion){
         console.log("Digite una sucripcion valida")
     }
 }
+
+//Ahora mismo proceso pero solo usando if, para ello se usa el return
+function validarSuscripcion (tipoDeSuscripcion) {
+	if (tipoDeSuscripcion === "Free"){
+	console.log("Solo puedes tomar los cursos gratis");
+	return;
+    }if (tipoDeSuscripcion === "Basic") {
+	console.log("Puedes tomar casi todos los cursos de Platzi durante un mes");
+    return;
+    }if (tipoDeSuscripcion === "Expert"){
+	console.log("Puedes tomar casi todos los cursos de Platzi durante un año");
+    return;
+    }if (tipoDeSuscripcion === "ExpertDuo") {
+	console.log("Tú y alguien más pueden tomar TODOS los cursos de Platzi durante un año");
+    return;
+    }
+console.warn('Este tipo de suscripción no existe')
+};
 
