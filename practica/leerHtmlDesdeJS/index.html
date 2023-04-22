@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="tittle" suelo="rocoso">Aprendiendo a manipular html desde javascript</h1>
+    <p class="parrafo1">Primer parrafo</p>
+    <p class="parrafo2">Segundo parrafo</p>
+    <p class="parrafo3">Tercer parrafo</p>
+    <input type="text">
+    <script>
+        //querySelector es similar a un getelementbyid solo que aqui no se limita a llamar unicamente a traves del id, 
+        //se puede llamar por elmento de html (h1,p, input), por nombre de clase usando un . antes del nombre de la clase 
+        //(.container, .parrafo, .userInput) o por ID usando un # antes del nombre ("#name, #color, #edad")
+        //ES MUY SIMILAR A COMO FUNCIONAN LOS SELECTORES EN CSS
+        //EN ESTE CASO, LAS VARIABLES SE ESTAN CONVIRTIENDO EN EL ELEMENTO DE HTML
+        const titulo = document.querySelector("#tittle")
+        const primerParrafo = document.querySelector(".parrafo1")
+        const segundoParrafo = document.querySelector(".parrafo2")
+        const tercerParrafo = document.querySelector(".parrafo3")
+        const userInput = document.querySelector("input")
+        //En este console.log mando a llamar mis variables en forma de objeto, de esa manera puedo ver su nombre y lo que se guardo en ellas
+        console.log({
+            titulo,
+            primerParrafo,
+            segundoParrafo,
+            tercerParrafo,
+            userInput,
+        })
+        //Aqui se esta cambiando el contenido del h1 mediante el uso de javacript
+        titulo.innerHTML = "Aguacate <br> malvado" //innerHTML convierte todo a html
+        titulo.innerText = "Aguacate <br> malvado" //innerText simplemente agrega texto
+        console.log(titulo.getAttribute("suelo")) //getAttribute toma un atributo de un elemento
+        titulo.setAttribute("id", "primergrantitulo") //con setAttribute puedes cambiar el valor de un atributo desde js
+        titulo.classList.add("rojo") //permite agregar clases desde js e ir sumando clases al mismo elemento
+        titulo.classList.remove("rojo") //remueve clases desde js
+        userInput.value = "Hola a todosssss" //modificar el valor del input
+        userInput.placeholder = "saluda, irrespetuoso" //Se puede modificar cualquier atributo de un elemento
+        const img = document.createElement("img")
+        img.setAttribute("src", "https://imgs.search.brave.com/k1wc2AfZrd9TMpMBdrEY39hYekDeTbvxiDormtxuF_I/rs:fit:640:960:1/g:ce/aHR0cHM6Ly92aWdu/ZXR0ZS53aWtpYS5u/b2Nvb2tpZS5uZXQv/Y2hhcmFjdGVycHJv/ZmlsZS9pbWFnZXMv/Ny83Mi9UVEdMc2Vy/aWVzbG9nby5qcGcv/cmV2aXNpb24vbGF0/ZXN0P2NiPTIwMTYw/OTEwMjMxMDMw")
+        tercerParrafo.append(img) // al elemento de html le estamos agregando un nuevo elemento que creamos en js
+    </script>
+</body>
+</html>
