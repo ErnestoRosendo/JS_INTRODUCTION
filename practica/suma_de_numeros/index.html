@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Suma de dos numeros</h1>
+    <input type="text" class="numero1">
+    <!-- el atributo onchange permite ejecutar algo cuando un input se rellena -->
+    <input type="text" class="numero2" onchange="console.log('se agrego el input')">
+    <!-- el atributo onclick hace que suceda algo cuando se da click en el elemento -->
+    <button onclick="sumar()">Sumar numeros</button> 
+    <p id="resultado"></p>
+</body>
+    <script>
+
+        num1 = document.querySelector(".numero1")
+
+        num2 = document.querySelector(".numero2")
+
+        presultado = document.querySelector("#resultado")
+
+        //esta funcion concatena valores string
+        function sumar() {
+            const resultado = num1.value + num2.value;
+            presultado.innerText = `El resultado es: ${resultado}`
+        }
+        
+    </script>
+</html>
