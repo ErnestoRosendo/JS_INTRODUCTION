@@ -8,22 +8,23 @@
 </head>
 <body>
     <h1>Suma de dos numeros</h1>
-    <form>
+    <form id="form">
         
     <input type="text" class="numero1">
     <!-- el atributo onchange permite ejecutar algo cuando un input se rellena -->
     <input type="text" class="numero2" onchange="console.log('se agrego el input')">
     <!-- el atributo onclick hace que suceda algo cuando se da click en el elemento -->
-    <button>Sumar numeros</button> 
+    <button type="button">Sumar numeros</button> 
 
     <p id="resultado"></p>
 
     </form>
 
     UNA CARACTERISTICA DE LA ETIQUETA FORM ES QUE EL ULTIMO BOTON QUE ENCUENTRA, LO CONVIERTE EN UNO DE TIPO SUBMIT, POR LO QUE AL CLICKEARLO RECARGARA LA PAGINA
+    POR ELLO ES QUE CUALQUIER FUNCION QUE ESTE LIGADA A ESE BOTON, NO SE MOSTRARA CORRECTAMENTE
 
-
-    <script>
+    <!-- <script>
+        form = document.querySelector("#form")
 
         num1 = document.querySelector(".numero1")
 
@@ -37,15 +38,46 @@
 
         //addEventListener es un metodo y tenemos que llamarlo en la variable que lo vamos a ejecutar y definir cual es el evento que tiene que suceder para hacer algo
         //En este caso el evento que activa es un click, y lo que se ejecuta es la funcion "sumar". IMPORTANTE: LA FUNCION SE LLAMA SIN PARENTESIS PORQUE addEventListener se los coloca el mismo
-        btn.addEventListener('click', sumar);
-
+        
+        form.addEventListener('submit', sumar);
+        //PARA QUE SE EJECUTA DICHA FUNCION DEBEMOS HACER QUE EL ELEMENTO SEA EL FORMULARIO Y QUE SE ACTIVE CON EL EVENTO SUBMIT
 
         //esta funcion concatena valores string
-        function sumar() {
+        function sumar(event) {
+            event.preventDefault(); //EVITA QUE SE RECARGUE LA PAGINA AL DAR CLICK EN EL BOTON
             const resultado = num1.value + num2.value;
             presultado.innerText = `El resultado es: ${resultado}`
         }
         
+    </script> -->
+
+    <script>      //OTRA FORMA DE RESOLVER ESTE PROBLEMA ES UTILIZANDO EL MISMO CODIGO CON EL BOTON Y EL CLICK PERO ESPECIFICANDO EL TIPO DEL BOTON PARA QUE ASI EL FORMULARIO NO SE LO CAMBIE
+
+    form = document.querySelector("#form")
+
+    num1 = document.querySelector(".numero1")
+
+    num2 = document.querySelector(".numero2")
+
+    presultado = document.querySelector("#resultado")
+
+    //PARA USAR ADDEVENTLISTENER NECESITAMOS PASAR EL ELEMENTO DE HTML A JAVASCRIPT QUE VA A ESCUCHAR EL EVENTO, EN ESTE CASO EL BOTON DE ABAJO
+    btn = document.querySelector("button")
+
+
+    //addEventListener es un metodo y tenemos que llamarlo en la variable que lo vamos a ejecutar y definir cual es el evento que tiene que suceder para hacer algo
+    //En este caso el evento que activa es un click, y lo que se ejecuta es la funcion "sumar". IMPORTANTE: LA FUNCION SE LLAMA SIN PARENTESIS PORQUE addEventListener se los coloca el mismo
+
+    btn.addEventListener('click', sumar);
+    //PARA QUE SE EJECUTA DICHA FUNCION DEBEMOS HACER QUE EL ELEMENTO SEA EL FORMULARIO Y QUE SE ACTIVE CON EL EVENTO SUBMIT
+
+    //esta funcion concatena valores string
+    function sumar(event) {
+        event.preventDefault(); //EVITA QUE SE RECARGUE LA PAGINA AL DAR CLICK EN EL BOTON
+        const resultado = num1.value + num2.value;
+        presultado.innerText = `El resultado es: ${resultado}`
+}
+
     </script>
 </body>
 </html>

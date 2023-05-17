@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button>Boton de pruebas</button>
+
+    <input type="text" value="Trata de copiar este texto">
+
+
+    
+    <script>
+
+        btn = document.querySelector("button")
+
+        inputUser = document.querySelector("input")
+
+        btn.addEventListener("mouseover", pasarSobre)  //El evento mouseover se activa cuando se pasa el mouse encima de un elemento
+        btn.addEventListener("mouseout", arrepentirseDe) //El elemento mouseout se activa cuando una vez puesto el cursor encima del elemento, se quita
+        inputUser.addEventListener("keydown", presionarTecla) //keydown se activa al presionar una tecla dentro de un input
+        inputUser.addEventListener("copy", hasCopiado) //copy se activa cada que hacemos control c o copiamos manualmente
+        btn.addEventListener("click", presionarBoton) 
+
+        
+        function pasarSobre () {
+            console.log("El usuario esta apunto de pulsar el boton")
+        }
+
+        function arrepentirseDe () {
+            console.log("El usuario no presiono el boton")
+        }
+
+        function presionarTecla () {
+            console.log("El usuario ha presionado una tecla")
+        }
+        
+        function presionarBoton () {
+            console.log("El usuario presionó el boton")
+        }
+        
+        function hasCopiado () {
+            alert("COPIASTE!!!")
+        }
+
+    </script>
+</body>
+</html>
